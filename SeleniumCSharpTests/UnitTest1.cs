@@ -38,10 +38,10 @@ namespace SeleniumCSharpTests
             IWebElement MonthList = driver.FindElement(By.XPath(".//*[@id=\'month\']"));
             SelectElement Months = new SelectElement(MonthList);
             Months.SelectByValue("1");
+            Months.SelectByIndex(1);
+            //Months.SelectByText("sty");
 
-
-            //string temp= emailTextField.Text;
-            //Assert.AreEqual(textTest, temp);
+            
         }
 
 

@@ -53,7 +53,7 @@ namespace SeleniumCSharpTests
         public void TestMethod3()
         {
            
-            //Assert.Ignore("Firefox not starting");
+            Assert.Ignore("Testing of Skip Attribute");
             var firefoxOptions = new FirefoxOptions();
             firefoxOptions.BinaryLocation = BaseClass.BaseTest.GetFirefoxLocation();
             //new WebDriverManager.DriverManager().SetUpDriver(new FirefoxConfig());
