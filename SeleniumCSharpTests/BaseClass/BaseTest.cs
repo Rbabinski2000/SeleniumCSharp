@@ -29,7 +29,7 @@ namespace SeleniumCSharpTests.BaseClass
         [TearDown]
         public void Close()
         {
-            //driver.Close();
+            
             driver.Quit();
         }
         public static string GetFirefoxLocation()
@@ -40,7 +40,7 @@ namespace SeleniumCSharpTests.BaseClass
             };
             return new DriverFinder(options).GetBrowserPath();
         }
-        public static void JebacCookies(IWebDriver driver)
+        public static void CloseCookies(IWebDriver driver)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(2));
             try

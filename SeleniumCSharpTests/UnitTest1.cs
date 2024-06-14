@@ -18,7 +18,7 @@ namespace SeleniumCSharpTests
             emailTextField.SendKeys(textTest);
 
 
-            BaseTest.JebacCookies(driver);
+            BaseTest.CloseCookies(driver);
 
             string temp= emailTextField.GetAttribute("value");
            
@@ -28,12 +28,12 @@ namespace SeleniumCSharpTests
         public void TestMethod2()
         {
 
-            BaseTest.JebacCookies(driver);
+            BaseTest.CloseCookies(driver);
 
             IWebElement CreateAccountButton = driver.FindElement(By.XPath(".//*[starts-with(@id, 'u_0_0_') and string-length(@id) >= 7]"));
             CreateAccountButton.Click();
 
-            BaseTest.JebacCookies(driver);
+            BaseTest.CloseCookies(driver);
             
             IWebElement MonthList = driver.FindElement(By.XPath(".//*[@id=\'month\']"));
             SelectElement Months = new SelectElement(MonthList);
