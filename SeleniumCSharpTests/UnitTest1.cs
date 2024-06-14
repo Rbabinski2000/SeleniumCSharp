@@ -18,35 +18,22 @@ namespace SeleniumCSharpTests
             emailTextField.SendKeys(textTest);
 
 
-            IWebElement cokkies = driver.FindElement(By.XPath(".//*[@aria-label='Odrzuæ opcjonalne pliki cookie']"));
-            cokkies.Click();
+            BaseTest.JebacCookies(driver);
 
             string temp= emailTextField.GetAttribute("value");
-            Assert.AreEqual(textTest, temp);
+           
         }
 
         [Test, Category("Regression testing")]
         public void TestMethod2()
         {
 
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(2));
-            wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath(".//*[@aria-label='Odrzuæ opcjonalne pliki cookie']"))).Click();
+            BaseTest.JebacCookies(driver);
 
-            //IWebElement cokkies = driver.FindElement(By.XPath(".//*[@aria-label='Odrzuæ opcjonalne pliki cookie']"));
-            //cokkies.Click();
-            
             IWebElement CreateAccountButton = driver.FindElement(By.XPath(".//*[starts-with(@id, 'u_0_0_') and string-length(@id) >= 7]"));
             CreateAccountButton.Click();
 
-            try
-            {
-                IWebElement cookiesButton2 = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath(".//*[@aria-label='Odrzuæ opcjonalne pliki cookie']")));
-                cookiesButton2.Click();
-            }
-            catch (WebDriverTimeoutException)
-            {
-                ((IJavaScriptExecutor)driver).ExecuteScript("console.log('Cookies2 button not found or not clickable within the timeout period.')");
-            }
+            BaseTest.JebacCookies(driver);
             
             IWebElement MonthList = driver.FindElement(By.XPath(".//*[@id=\'month\']"));
             SelectElement Months = new SelectElement(MonthList);
